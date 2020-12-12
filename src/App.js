@@ -4,95 +4,117 @@ import NavigationPanel from './components/Navigation';
 import About from './components/About';
 import Projects from './components/Projects';
 import PersonalLinks from './components/Links'
-import React, {useState, useReducer, useRef, useEffect} from 'react';
+import React, { useReducer, forwardRef, useEffect, useState} from 'react';
 import {CSSTransition} from 'react-transition-group'; // ES6
 function App() {
   const nodeRef = React.useRef(null);
-  var animation;
-  
+  const [animating, setAnimating] = useState(true);
+
   function onPageChanged(state, index) {
-    let newPage = {}
-    // stop animations if index == -1;
-    if(index === -1) {
-      console.log("Done animating")
-      state.animate = false;
-      return state;
-    }
+    if(index !== state.index){
+      let newPage = {}
+      newPage.index = index;
+      switch(index) {
+        // About
+        case 0:
+          newPage.content = <About ref={nodeRef}/>      
+        break;
+        // Projects
+        case 1:
+          newPage.content = <Projects ref={nodeRef}/>
+        break;
+        // Links
+        case 2:
+          newPage.content = <PersonalLinks ref={nodeRef}/>
+        break;
+        // Hosting
+        case 3:
+          newPage.content = <ReactDefault ref={nodeRef}/>;
+        break;
+        
+        default:
     
-    newPage.index = index;
-    switch(index) {
-      // About
-      case 0:
-        newPage.content = <About ref={nodeRef}/>      
-      break;
-      // Projects
-      case 1:
-        newPage.content = <Projects ref={nodeRef}/>
-      break;
-      // Links
-      case 2:
-        newPage.content = <PersonalLinks ref={nodeRef}/>
-      break;
-      // Hosting
-      case 3:
-        newPage.content = <ReactDefault ref={nodeRef}/>;
-      break;
-      
-      default:
-  
+      }
+      return newPage;
     }
-    return newPage;
   }
+  const [page, changePage] = useReducer(onPageChanged,
+    {index: 0, content: <About ref={nodeRef}/>});
 
   useEffect(()=>{
-    animation=true;
-    console.log("UseEffect")
+    console.log("Showing");
+    setAnimating(true);
     return ()=>{
-      console.log("Cleanup")
-      animation=false;
+      // setAnimating(false);
+      // console.log("Cleanup")
     }
-  });
+  }, [page]);
 
-  function handlePageChange (index) {
-    setAnimateFolder(false);
+  // useEffect(()=>{
+  //   console.log("Page Change");
+  //   setAnimating(false);
+  // }, [page]);
+
+  function cyclePage(index){
+    setAnimating(false);
+    console.log("Done animating close")
     changePage(index);
   }
 
   // const [pageIndex, changePage] = useState(3);
-  const [page, changePage] = useReducer(onPageChanged,
-    {index: 0, content: <About />, animate: false});
-  const [animatingFolder, setAnimateFolder] = useState(false);
 
   return (
-    <div className="App">
-      <NavigationPanel selection={page.index} change={changePage}/>
-      <CSSTransition
+    <div className="App container-fluid p-0">
+      <NavigationPanel selection={page.index} change={cyclePage} animating={setAnimating}/>
+      <div className="App-content">
+        <CSSTransition
         nodeRef={nodeRef}
-        timeout={500}
         classNames="folder"
-        in={animatingFolder}
-        // onEntered={()=>animation=false}
-        onExited={()=>console.log("Exited")}>
-        { page.content }    
-      </CSSTransition>  
+        in={animating}
+        timeout={500}
+        unmountOnExit
+        onEntered={()=>console.log("Enter")}
+        onExit={()=>console.log("Exited")}
+        >
+          { page.content }    
+        </CSSTransition>  
+      </div>
+      
     
     </div>
   );
 }
 
-function ReactDefault() {
+const ReactDefault = forwardRef((props, ref) => {
+  // const [animatingFolder, setAnimateFolder] = useState(true);
+  // if(props.transitionOut){
+  //   setAnimateFolder(false);
+  // }
+  // Set the callback for hiding animation
+  // function TestCallback(bool){
+  //   console.log("TESTCALLBACK");
+  //   setAnimateFolder(bool);
+  // }
+  // props.callback(TestCallback);
+  // useEffect(()=>{
+  //   console.log("Mounting")
+  //   return ()=>{
+  //     console.log("Unmounting")
+  //     setAnimateFolder(false);
+  //   }
+  // });
   return(
-    <header id="pageContent" className="App-content">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>This website was built with:</p>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">React</li>
-        <li className="list-group-item">Webpack</li>
-        <li className="list-group-item">Node Package Manager</li>
-        <li className="list-group-item">Express</li>
-      </ul>
-    </header>
+    <header ref={ref} id="pageContent" className="App-content">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>This website was built with:</p>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">React</li>
+          <li className="list-group-item">Webpack</li>
+          <li className="list-group-item">Node Package Manager</li>
+          <li className="list-group-item">Express</li>
+        </ul>
+    </header>    
   )
-}
+});
 
 export default App;

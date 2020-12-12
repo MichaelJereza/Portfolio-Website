@@ -1,4 +1,4 @@
-import { forwardRef, useRef } from "react";
+import { forwardRef } from "react";
 import "../App.css"
 
 const Contribution = forwardRef((props, ref) => {
@@ -10,7 +10,7 @@ const Contribution = forwardRef((props, ref) => {
                     <h1>Malware Framework</h1>
                     <p>For my 2020 senior capstone project I am developing a series of malware with a group of three others. We are developing a denial of service attack, rootkit, keylogger, and ransomware. The goal of this project is to provide a high-level overview of malware, as well as provide a framework for future malware research capstones projects.</p>
                     <div className="embed-responsive embed-responsive-16by9" >
-                        <iframe className="Embedded-youtube"
+                        <iframe title="Embedded Youtube Demonstration" className="Embedded-youtube"
                             src="https://youtube.com/embed/brfiW2lZ9N4">
                         </iframe>
                     </div>
@@ -26,7 +26,7 @@ const Contribution = forwardRef((props, ref) => {
                         <div >
                             <p>Meal Logger provides an interface for tracking meals. Recording food items adds to a grand total for the meal's total nutritional value, which can be exported as a nutrition label. The interface also allows the user to capture an image and determines the appropriate meal based on recording time.</p>
                         </div>
-                        <img className="img-fluid" src="https://raw.githubusercontent.com/MichaelJereza/final-project-meal-logger/master/images/meal_label.png">
+                        <img alt="Meal Logger Food Label" className="img-fluid" src="https://raw.githubusercontent.com/MichaelJereza/final-project-meal-logger/master/images/meal_label.png">
                         </img>
                     </div>
                 </div>

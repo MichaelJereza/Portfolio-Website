@@ -1,5 +1,5 @@
 // import "./About.css"
-import { forwardRef, useRef } from "react";
+import { forwardRef } from "react";
 import "../App.css"
 
 const About = forwardRef((props, ref) => {
