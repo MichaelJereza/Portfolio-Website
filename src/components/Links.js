@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import "../App.css"
 
 const PersonalLinks = forwardRef((props, ref) => {
     return(

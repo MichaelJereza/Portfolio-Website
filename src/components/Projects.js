@@ -1,5 +1,4 @@
 import { forwardRef } from "react";
-import "../App.css"
 
 const Contribution = forwardRef((props, ref) => {
     return(
