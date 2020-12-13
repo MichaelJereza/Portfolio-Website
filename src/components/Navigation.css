@@ -1,0 +1,9 @@
+.Navigation-bar {
+    background-color: rgb(52, 58, 64);
+    color: white;
+    z-index: 1;
+} 
+
+li {
+    border-radius: 0% !important;
+}
