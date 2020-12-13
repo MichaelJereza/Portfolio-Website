@@ -56,7 +56,7 @@
 .folder-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: transform 500ms, opacity 600ms;
+  transition: transform 500ms ease-out, opacity 500ms ease-in-out;
 }
 
 .folder-exit {
@@ -67,7 +67,7 @@
 .folder-exit-active {
   opacity: 0;
   transform: translateX(-100%);
-  transition: transform 500ms, opacity 500ms;
+  transition: transform 500ms ease-in, opacity 500ms ease-in-out;
 }
 
 #pageContent {
