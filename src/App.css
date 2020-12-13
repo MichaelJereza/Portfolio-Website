@@ -62,21 +62,25 @@
 }
 
 .folder-enter {
+  opacity: 0;
   transform: translateX(-100%);
 }
 
 .folder-enter-active {
+  opacity: 100%;
   transform: translateX(0);
-  transition: transform 500ms ease-in;
+  transition: transform 500ms, opacity 600ms;
 }
 
 .folder-exit {
+  opacity: 100%;
   transform: translateX(0);
 }
 
 .folder-exit-active {
+  opacity: 0;
   transform: translateX(-100%);
-  transition: transform 300ms ease-out;
+  transition: transform 500ms, opacity 500ms;
 }
 
 #pageContent {

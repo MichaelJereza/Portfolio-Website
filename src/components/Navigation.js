@@ -15,7 +15,6 @@ function Navigation(props) {
     }
 
     return (
-        // Fix height not max on this
         <div className="Navigation-bar">
             <li 
                 className={"nav-item btn btn-lg btn-dark "+ (navSelected[0] ? "active" : "")} 

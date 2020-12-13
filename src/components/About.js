@@ -4,7 +4,7 @@ import "../App.css"
 
 const About = forwardRef((props, ref) => {
     return(
-        <div ref={ref} id="pageContent" className="App-content text-justify">
+        <div ref={ref} className="text-justify">
             <h1>Michael Jereza</h1>
             <div className="Left-paragraph">
 
