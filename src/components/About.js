@@ -1,6 +1,4 @@
-// import "./About.css"
 import { forwardRef } from "react";
-import "../App.css"
 
 const About = forwardRef((props, ref) => {
     return(

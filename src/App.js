@@ -9,7 +9,6 @@ import {CSSTransition} from 'react-transition-group'; // ES6
 function App() {
   const [animating, setAnimating] = useState(true);
   const [pageIndex, setIndex] = useState(0);
-  
   // Takes an integer and determines component content for it
   function onPageChanged(state, index) {
     let newPage = {}
@@ -59,7 +58,6 @@ function App() {
         <CSSTransition
         classNames="folder"
         in={animating}
-
         addEndListener={
           (node, done) => {node.addEventListener('transitionend',(e) => {
             if(animating===false){
