@@ -62,9 +62,6 @@ function App() {
 
         addEndListener={
           (node, done) => {node.addEventListener('transitionend',(e) => {
-            console.log(animating);
-            console.log("DONE")
-            console.log(done);
             if(animating===false){
               changePage(pageIndex);
             }

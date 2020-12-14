@@ -4,9 +4,9 @@ import "../App.css"
 
 const About = forwardRef((props, ref) => {
     return(
-        <div ref={ref} className="text-justify">
+        <div ref={ref} className="">
             <h1>Michael Jereza</h1>
-            <div className="Left-paragraph">
+            <div className="text-justify">
 
                 <p>I am a full-stack web developer with experience working on interactive web applications and exchanging information through API implementations. I want to apply my skillset to protect against known and unknown threats using security practices. </p>
                     
