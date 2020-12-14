@@ -28,6 +28,10 @@
   pointer-events: none;
 }
 
+.App-text {
+  color: white !important;
+}
+
 /* .Left-paragraph {
   display: flex;
   flex-direction: column;
