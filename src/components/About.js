@@ -15,7 +15,7 @@ const About = forwardRef((props, ref) => {
 
             <h1><DecryptingText 
                 textContent={"Michael Jereza"} 
-                timeout={55}
+                timeout={25}
                 iterations={3}
                 /></h1>
             

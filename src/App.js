@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import PersonalLinks from './components/Links'
 import React, { useReducer, forwardRef, useEffect, useState} from 'react';
 import {CSSTransition} from 'react-transition-group'; // ES6
+import DecryptingText from './components/DecryptingText';
 function App() {
   const [animating, setAnimating] = useState(true);
   const [pageIndex, setIndex] = useState(0);
@@ -82,10 +83,31 @@ const ReactDefault = forwardRef((props, ref) => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>This website was built with:</p>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">React</li>
-          <li className="list-group-item">Webpack</li>
-          <li className="list-group-item">Node Package Manager</li>
-          <li className="list-group-item">Express</li>
+          <li className="list-group-item"><DecryptingText 
+            textContent="React"
+            timeout={80}
+            iterations={3}
+            /></li>
+          <li className="list-group-item"><DecryptingText 
+            textContent="Webpack"
+            timeout={80}
+            iterations={3}
+            /></li>
+          <li className="list-group-item"><DecryptingText 
+            textContent="Node Package Manager"
+            timeout={33}
+            iterations={3}
+            /></li>
+          <li className="list-group-item"><DecryptingText 
+            textContent="Express"
+            timeout={80}
+            iterations={3}
+            /></li>
+          <li className="list-group-item"><DecryptingText 
+            textContent="Github Pages"
+            timeout={55}
+            iterations={3}
+            /></li>
         </ul>
     </header>    
   )

@@ -36,8 +36,9 @@ function DecryptStringAnimation(baseString, iterationForEachLetter, timeout) {
     // Takes stringToIterateAtIndex and index
     // Returns new string with iterated index
     function iterateLetter(stringToIterateAtIndex, index) {
+        // Reverse decryption direction (left to right)
         index = stringToIterateAtIndex.length-1 - index;
-        // ignore space
+        // Ignore space
         if(stringToIterateAtIndex.charAt(index)===' ') {
             return stringToIterateAtIndex;
         }
@@ -55,7 +56,9 @@ function DecryptStringAnimation(baseString, iterationForEachLetter, timeout) {
     }
 
     function iterateCorrectLetter(stringToIterateAtIndex, index, correctString) {
-        index = stringToIterateAtIndex.length-1 - index;
+        // Reverse decryption direction (left to right)
+        index = stringToIterateAtIndex.length - 1 - index;
+        
         let front = stringToIterateAtIndex.substring(0, index);
         let back;
         if(index!==stringToIterateAtIndex.length-1){
@@ -79,13 +82,16 @@ function DecryptStringAnimation(baseString, iterationForEachLetter, timeout) {
             })
         } else if(decryptionState.indexedCharacter!==0) {
             let newIndex = decryptionState.indexedCharacter-1;
-
-            if(decryptionState.currentString[decryptionState.indexedCharacter]===' '){
-                newIndex -= 1;
+            let newString = iterateCorrectLetter(decryptionState.currentString, decryptionState.indexedCharacter, baseString);
+            // check if space, skip if it is
+            if(decryptionState.currentString[newIndex]===' '){
+                // Set the space to the correct character
+                newString = iterateCorrectLetter(newString, newIndex, baseString)
+                newIndex = newIndex - 1;
             }
 
             setDecryptionState({
-                currentString: iterateCorrectLetter(decryptionState.currentString, decryptionState.indexedCharacter, baseString),
+                currentString: newString,
                 indexedCharacter: newIndex,
                 iterations: iterationForEachLetter,
                 done: false

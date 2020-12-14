@@ -6,7 +6,7 @@ const Contribution = forwardRef((props, ref) => {
         <div ref={ref} className="text-justify">
             <h1><DecryptingText 
                 textContent="Projects" 
-                timeout={45}
+                timeout={25}
                 iterations={3}/></h1>
             
                 <div >
