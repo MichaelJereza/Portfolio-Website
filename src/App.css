@@ -28,13 +28,13 @@
   pointer-events: none;
 }
 
-.Left-paragraph {
+/* .Left-paragraph {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
-}
+} */
 
 .Embedded-youtube {
   border: 0;
@@ -66,7 +66,7 @@
   transform: translateX(-100%);
 }
 
-.folder-enter-active {
+.folder-enter.folder-enter-active {
   opacity: 100%;
   transform: translateX(0);
   transition: transform 500ms, opacity 600ms;
@@ -77,7 +77,7 @@
   transform: translateX(0);
 }
 
-.folder-exit-active {
+.folder-exit.folder-exit-active {
   opacity: 0;
   transform: translateX(-100%);
   transition: transform 500ms, opacity 500ms;
