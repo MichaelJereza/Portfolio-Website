@@ -1,5 +1,7 @@
 import { forwardRef } from "react";
 import DecryptingText from "./DecryptingText";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faGooglePlay } from '@fortawesome/free-brands-svg-icons'
 
 const PersonalLinks = forwardRef((props, ref) => {
     return(
@@ -14,16 +16,16 @@ const PersonalLinks = forwardRef((props, ref) => {
                 <div className="text-justify">
                     
                     <h2><a target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.mike.android.ncrypt" className="App-link">
-                        <DecryptingText textContent={"Ncrypt"} timeout={80}>
-                        </DecryptingText>
+                        <FontAwesomeIcon icon={faGooglePlay} color="white"/>
+                        <DecryptingText textContent={"Ncrypt"} timeout={80}/>
                     </a></h2>
                     <h2><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/michael-jereza-360107181/" className="App-link">
-                        <DecryptingText textContent={"LinkedIn"} timeout={73}>
-                        </DecryptingText>
+                        <FontAwesomeIcon icon={faLinkedin} color="white"/>
+                        <DecryptingText textContent={"LinkedIn"} timeout={73}/>
                     </a></h2>
                     <h2><a target="_blank" rel="noreferrer" href="https://github.com/MichaelJereza" className="App-link">
-                        <DecryptingText textContent={"Github"} timeout={80}>
-                        </DecryptingText>    
+                        <FontAwesomeIcon icon={faGithub} color="white"/>
+                        <DecryptingText textContent={"Github"} timeout={80}/>
                     </a></h2>
                 </div>
             </div>

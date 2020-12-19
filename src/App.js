@@ -83,27 +83,27 @@ const ReactDefault = forwardRef((props, ref) => {
         <img src={logo} className="App-logo" alt="logo" />
         <p>This website was built with:</p>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item"><DecryptingText 
+          <li className="list-group-item text-nowrap"><DecryptingText 
             textContent="React"
             timeout={80}
             iterations={3}
             /></li>
-          <li className="list-group-item"><DecryptingText 
+          <li className="list-group-item text-nowrap"><DecryptingText 
             textContent="Webpack"
             timeout={80}
             iterations={3}
             /></li>
-          <li className="list-group-item"><DecryptingText 
+          <li className="list-group-item text-nowrap"><DecryptingText 
             textContent="Node Package Manager"
             timeout={33}
             iterations={3}
             /></li>
-          <li className="list-group-item"><DecryptingText 
+          <li className="list-group-item text-nowrap"><DecryptingText 
             textContent="Express"
             timeout={80}
             iterations={3}
             /></li>
-          <li className="list-group-item"><DecryptingText 
+          <li className="list-group-item text-nowrap"><DecryptingText 
             textContent="Github Pages"
             timeout={55}
             iterations={3}

@@ -78,6 +78,12 @@
   z-index: 0;
 }
 
+/* STOP OUTLINING BUTTON ON CLICK */
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

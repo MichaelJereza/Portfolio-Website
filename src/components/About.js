@@ -13,7 +13,7 @@ const About = forwardRef((props, ref) => {
     return(
         <div ref={ref} className="text-left">
 
-            <h1><DecryptingText 
+            <h1 className="text-nowrap"><DecryptingText 
                 textContent={"Michael Jereza"} 
                 timeout={25}
                 iterations={3}
