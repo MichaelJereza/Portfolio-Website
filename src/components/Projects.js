@@ -1,4 +1,5 @@
 import {Suspense, lazy, useState, useEffect } from "react";
+import {CSSTransition} from 'react-transition-group'; // ES6
 import DecryptingText from "./DecryptingText";
 import nonLazyVideo from "./LazyVideo";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,20 +8,14 @@ import { faGithub, faLinkedin, faGooglePlay } from '@fortawesome/free-brands-svg
 
 function Project (props) {
 
-    const [loadVideo, setLoadVideo] = useState(true);
     let LazyVideo;
-    if(loadVideo) {
-        console.log("Lazy")
+    if([projectView.loadVideo]) {
         LazyVideo = lazy(()=>import("./LazyVideo"));
     } else {
         // If not the first  time don't lazy load the video again
         // Eg: transition
         LazyVideo = nonLazyVideo
     }
-
-    useEffect(()=>{
-        setLoadVideo(false);
-    }, [loadVideo === true])
 
     // Project Elements
     const malwareFramework = (<div>
@@ -54,75 +49,79 @@ function Project (props) {
         </div>
     </div>)
 
+
+
     const [projectView, setProjectView] = useState({
         index: 0,
-        content: malwareFramework});
+        loadVideo: true,
+        animateTransition: true,
+    });
 
-    useEffect(()=>{
-        setLoadVideo(true);
-    }, [projectView.index === 0])
+    const[content, setContent] = useState(malwareFramework);
+
+    // useEffect(()=>{
+    //     let stopLoading = projectView;
+    //     stopLoading.loadVideo = false;
+    //     setProjectView(stopLoading);
+    // }, [projectView.loadVideo === true])
+
+    // useEffect(()=>{
+    //     let loadVideo = projectView;
+    //     loadVideo.loadVideo = true;
+    //     setProjectView(loadVideo);
+    // }, [projectView.index === 0])
     
-    function changeView(nexIndex) {
+    function getIndexContent(nexIndex) {
+        let newView;
         switch(nexIndex) {
             case 0: 
-                setProjectView({
-                    index: 0,
-                    content: malwareFramework
-                    
-                });
+                newView = malwareFramework;
                 break;
             case 1:
-                setProjectView({
-                    index: 1,
-                    content: nCrypt
-                    
-                });
+                newView = nCrypt;                    
                 break;
             case 2:
-                setProjectView({
-                    index: 2,
-                    content: mealLogger
-                    
-                });
+                newView = mealLogger;
                 break;
             default:
         }
-    }
-    
 
-    function prevView () {
-        let newIndex = projectView.index-1; 
-        if(newIndex >= 0) {
-            changeView(newIndex);
-        } 
+        return newView;
     }
 
-    function nextView() {
-        let newIndex = projectView.index+1; 
-        if(newIndex <= 2) {
-            changeView(newIndex);
+    // increment should be +1 or -1
+    function changeView(increment) {
+        let newIndex = projectView.index + increment
+        if(newIndex >= 0 && newIndex <= 2) {
+            // setContent(getIndexContent(newIndex));
+            let loadingVideo = false;
+            if(newIndex == 0) {
+                loadingVideo = true;
+            }
+            setProjectView({
+                index: newIndex,
+                loadVideo: loadingVideo,
+                animateTransition: false,
+            })
         }
     }
-    const prevButton = projectView.index !== 0 ? 
-    (
-        <button onClick={prevView} className="btn btn-light">
-            Prev
-            {/* <span className="glyphicon glyphicon-chevron-left"></span> */}
-        </button>
-    ) : 
-    (
-        (
-            <button onClick={prevView} className="btn btn-light" disabled>
-                Prev
-                {/* <span className="glyphicon glyphicon-chevron-left"></span> */}
-            </button>
-        )  
-    )
+
+    useEffect(()=>{
+        // Play the show animation
+        setProjectView({
+            index: projectView.index,
+            loadVideo: projectView.loadVideo,
+            animateTransition: true,
+        });
+    }, [content])
 
     return(
+
         <div className="text-justify">
+
+
             <span className="d-flex justify-content-between">
-                <button onClick={prevView} className="btn btn-link">
+                <button onClick={()=>{changeView(-1)}} className="btn btn-link">
                     <FontAwesomeIcon icon={faChevronLeft} color="white"/>
                 </button>
 
@@ -131,12 +130,27 @@ function Project (props) {
                     timeout={25}
                     iterations={3}/></h1>
 
-                <button onClick={nextView} className="btn btn-link" >
+                <button onClick={()=>{changeView(1)}} className="btn btn-link" >
                     <FontAwesomeIcon icon={faChevronRight} color="white"/>
                 </button>
             </span>
-            {projectView.content}
-            
+
+
+            <CSSTransition
+                classNames="project-transition"
+                in={projectView.animateTransition}
+                addEndListener={
+                    (node, done) => {node.addEventListener('transitionend',(e) => {
+                        if(projectView.animateTransition===false){
+                            setContent(getIndexContent(projectView.index));
+                        }
+                        done(e);
+                    }, false);}
+                }>
+                { content }    
+            </CSSTransition>  
+
+
         </div>
     )  
 };
