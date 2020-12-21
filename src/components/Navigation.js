@@ -6,11 +6,17 @@ function Navigation(props) {
     selection[props.selection] = true;
     const [navSelected, setNavSelected] = useReducer(onNavClicked, selection);
 
+    let alreadySelected = false;
+
     function onlySelectInActive (index) {
+        // Prevent navigating to a new location while animation plays
+        if(alreadySelected){
+            return;
+        }
         if(!navSelected[index]) {
+            alreadySelected = true;
             setNavSelected(index); 
             props.change(index);
-        } else {
         }
     }
 

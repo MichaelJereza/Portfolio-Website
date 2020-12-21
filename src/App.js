@@ -2,8 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import NavigationPanel from './components/Navigation';
 import About from './components/About';
-import Projects from './components/Projects';
-import PersonalLinks from './components/Links'
+import Projects from './components/projects/Projects';
+import PersonalLinks from './components/Links';
 import React, { useReducer, forwardRef, useEffect, useState} from 'react';
 import {CSSTransition} from 'react-transition-group'; // ES6
 import DecryptingText from './components/DecryptingText';
