@@ -19,7 +19,6 @@ import DecryptingText from './components/DecryptingText';
 function App () {
 
   const [animating, setAnimating] = useState(true);
-  const [navClickable, setNavClickable] = useState(false);
   const [navSelected, setNavSelected] = useState(useLocation().pathname.slice(1));
   const [redirect, redirectTo] = useState(null);
 
@@ -38,10 +37,10 @@ function App () {
     if(redirect!==null) {
       redirectTo(null);
     } 
-    else if(animating===false && redirect===null) {
+    else if(redirect===null) {
       setAnimating(true);
-
     }
+    
   }, [redirect])
   
   if(redirect) {
@@ -122,7 +121,7 @@ const ReactDefault = forwardRef((props, ref) => {
             iterations={3}
             /></li>
           <li className="list-group-item text-nowrap"><DecryptingText 
-            textContent="Github Pages"
+            textContent="Github"
             timeout={55}
             iterations={3}
             /></li>

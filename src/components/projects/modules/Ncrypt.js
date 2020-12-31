@@ -4,9 +4,9 @@ import { faGooglePlay } from '@fortawesome/free-brands-svg-icons';
 function Ncrypt () {
     return (
         <div>
-            <span className="row no-gutters justify-content-between">
+            <span className="row no-gutters justify-content-center">
                 <h2>Ncrypt</h2>
-                <a className="App-link" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.mike.android.ncrypt">
+                <a className="App-link Title-link" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.mike.android.ncrypt">
                     <FontAwesomeIcon icon={faGooglePlay}/>
                 </a>
             </span>

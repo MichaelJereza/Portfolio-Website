@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import MealLogger from "./modules/MealLogger";
 
+import './Projects.css'
+
 function Project (props) {
 
     const [projectView, setProjectView] = useState({
