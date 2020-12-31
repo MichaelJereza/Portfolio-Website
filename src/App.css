@@ -6,7 +6,7 @@
   justify-content: flex-start;
 }
 
-.App-content {
+#App-content {
   background-color: #282c34;
   min-height: 100vh;
   width: 100%;
@@ -17,6 +17,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   padding: 2rem;
+  padding-top: 1rem;
 }
 
 .App-link {
@@ -31,14 +32,6 @@
 .App-text {
   color: white !important;
 }
-
-/* .Left-paragraph {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  font-size: calc(10px + 2vmin);
-} */
 
 .Embedded-youtube {
   border: 0;

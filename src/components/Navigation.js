@@ -1,55 +1,60 @@
 import './Navigation.css'
-import React, {useReducer} from 'react';
+import React from 'react';
 
 function Navigation(props) {
-    let selection = [false, false, false, false];
-    selection[props.selection] = true;
-    const [navSelected, setNavSelected] = useReducer(onNavClicked, selection);
+    
+    let selection = {
+        "about": false,
+        "projects": false,
+        "links": false,
+        "hosting": false
+    };
+
+    // If user's navigate to "/" it will return "" from useLocation()
+    if(props.selection==="") {
+        selection["about"] = true;
+    } else {
+        selection[props.selection] = true;
+    }
 
     let alreadySelected = false;
 
-    function onlySelectInActive (index) {
+    function onlySelectInActive (route) {
         // Prevent navigating to a new location while animation plays
         if(alreadySelected){
             return;
         }
-        if(!navSelected[index]) {
+        
+        if(!selection[route]) {
             alreadySelected = true;
-            setNavSelected(index); 
-            props.change(index);
+            props.change(route);
         }
     }
 
     return (
         <div className="Navigation-bar">
             <li 
-                className={"nav-item btn btn-lg btn-dark "+ (navSelected[0] ? "active" : "")} 
-                onClick={()=>{onlySelectInActive(0)}}>
+                className={"nav-item btn btn-lg btn-dark "+ (selection["about"] ? "active" : "")} 
+                onClick={()=>{onlySelectInActive("about")}}>
                 About
             </li>
             <li 
-                className={"nav-item btn btn-lg btn-dark "+ (navSelected[1] ? "active" : "")} 
-                onClick={()=>{onlySelectInActive(1)}}>
+                className={"nav-item btn btn-lg btn-dark "+ (selection["projects"] ? "active" : "")} 
+                onClick={()=>{onlySelectInActive("projects")}}>
                 Projects
             </li>
             <li 
-                className={"nav-item btn btn-lg btn-dark "+ (navSelected[2] ? "active" : "")} 
-                onClick={()=>{onlySelectInActive(2)}}>
+                className={"nav-item btn btn-lg btn-dark "+ (selection["links"] ? "active" : "")} 
+                onClick={()=>{onlySelectInActive("links")}}>
                 Links
             </li>
             <li 
-                className={"nav-item btn btn-lg btn-dark "+(navSelected[3] ? "active" : "")} 
-                onClick={()=>{onlySelectInActive(3)}}>
+                className={"nav-item btn btn-lg btn-dark "+(selection["hosting"] ? "active" : "")} 
+                onClick={()=>{onlySelectInActive("hosting")}}>
                 Hosting
             </li>
       </div>
     )
-}
-
-function onNavClicked(state, index){
-    state = [false, false, false, false];
-    state[index] = true;
-    return state;
 }
 
 export default Navigation;
