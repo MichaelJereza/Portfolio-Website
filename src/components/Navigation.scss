@@ -1,0 +1,35 @@
+@import "../theme";
+
+// .btn-foreground:hover {
+//     background-color: $toolbar-onhover-button;
+// }
+
+// .btn-foreground:active {
+//     background-color: $toolbar-onactive-button !important;
+// }
+
+// .btn-foreground.active {
+//     background-color: $toolbar-active-button !important;
+// }
+
+.Navigation-bar {
+    background-color: $toolbar-background;
+    color: white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100%;
+    // padding-right: 5px;
+    // border-right: $toolbar-border double 10px;
+    // border-bottom: $toolbar-border double 10px;
+    // padding-top: 5px;
+    // border-top: $toolbar-border double 10px;
+    // border: $toolbar-border double 10px;
+    // border-right: 0;
+    box-shadow: 1px 0px 10px 1px black;
+}
+
+li {
+    border-radius: 0% !important;
+}

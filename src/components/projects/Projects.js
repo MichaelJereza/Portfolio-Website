@@ -10,6 +10,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import MealLogger from "./modules/MealLogger";
 
 import './Projects.css'
+import theme from '../../_theme.scss'
 
 function Project (props) {
 
@@ -26,11 +27,11 @@ function Project (props) {
     function getIndexContent(nexIndex) {
         let newView;
         switch(nexIndex) {
-            case 0: 
-                newView = <MalwareFramework lazyVideo={projectView.loadVideo}/>;
-                break;
-            case 1:
+            case 0:
                 newView = <Ncrypt />;                    
+                break;
+            case 1: 
+                newView = <MalwareFramework lazyVideo={projectView.loadVideo}/>;
                 break;
             case 2:
                 newView = <MealLogger />;
@@ -48,24 +49,24 @@ function Project (props) {
     if(clickableNav.left && projectView.index !== 0) {
         leftNav = (
         <button onClick={()=>{changeView(-1)}} className="btn btn-link" >
-            <FontAwesomeIcon icon={faChevronLeft} color="white"/>
+            <FontAwesomeIcon icon={faChevronLeft} color={theme.contentText}/>
         </button>)
     } else {
         leftNav = (
         <button onClick={()=>{changeView(-1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon icon={faChevronLeft} color="white"/>
+            <FontAwesomeIcon icon={faChevronLeft} color={theme.contentText}/>
         </button>)
     }
 
     if(clickableNav.right && projectView.index !== 2) {
         rightNav = (
         <button onClick={()=>{changeView(1)}} className="btn btn-link" >
-            <FontAwesomeIcon icon={faChevronRight} color="white"/>
+            <FontAwesomeIcon icon={faChevronRight} color={theme.contentText}/>
         </button>)
     } else {
         rightNav = (
         <button onClick={()=>{changeView(1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon icon={faChevronRight} color="white"/>
+            <FontAwesomeIcon icon={faChevronRight} color={theme.contentText}/>
         </button>)
     }
 
@@ -113,7 +114,7 @@ function Project (props) {
 
                 <h1><DecryptingText 
                     textContent="Projects" 
-                    timeout={25}
+                    timeout={40}
                     iterations={3}/></h1>
 
                 {/* <button onClick={()=>{changeView(1)}} className="btn btn-link" >

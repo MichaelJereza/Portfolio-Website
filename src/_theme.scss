@@ -1,0 +1,49 @@
+:root {
+    --highlight: rgb(255, 0, 76);
+    --background: #000000;
+    --foreground: #1d1d1d;
+};
+
+// toolbar background
+// $background:#000;
+// $primary: rgb(226, 0, 23);
+// $secondary: rgb(151, 0, 15);
+// $highlight: rgb(255, 0, 76);
+
+$foreground: rgb(34, 34, 34);
+$background:rgb(238, 75, 75);
+$background-alt: rgb(243, 232, 232);
+$primary: rgb(214, 2, 2);
+$secondary: rgb(151, 0, 15);
+$highlight: #1a83f3;
+
+// background of content
+// $content-background: #0a0a0a; 
+$content-background: $background-alt; 
+$content-backdrop: $background;
+$content-border: white;
+$content-text: black;
+$content-link: $highlight;
+
+$toolbar-background: $foreground;
+
+$toolbar-border: white;
+// navigation buttons
+// selected
+$toolbar-active-button: $primary;
+
+// on click
+$toolbar-onactive-button: $secondary;
+
+// on hover
+$toolbar-onhover-button: white;
+
+$theme-colors: (
+  "primary": $primary,
+  // "background": $content-background,
+  "foreground": $foreground
+);
+
+:export {
+  contentText: $content-text; 
+}

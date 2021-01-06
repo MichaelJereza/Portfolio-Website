@@ -1,0 +1,178 @@
+@import "./theme";
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+#App-content {
+  background-color: $content-backdrop; 
+  /* background-color: $primary; */
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: $content-text;
+  // padding-left: 2rem;
+  // padding-right: 2rem;
+  // margin-left: 4px;
+  // border: white double 10px;
+}
+
+#Content-border {
+  padding-top: 1rem;
+  background-color: $content-background;
+  // border: white double 10px;
+  border-left: 0;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  // margin: 2rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  // align-items: center;
+  justify-content: center;
+  box-shadow: 5px 0 100px 10px black;
+}
+
+.App-link {
+  color: $content-link;
+}
+
+#App-header {
+  color: $content-backdrop;
+}
+
+.App-link:hover {
+  color: $primary;
+}
+
+.App-link:active {
+  color: $secondary;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-text {
+  color: $content-text !important;
+}
+
+.Embedded-youtube {
+  border: 0;
+  width: 1280px;
+  height: 720px;
+}
+
+/* Overloading bootstrap */
+.list-group-item {
+  background: 0 !important;
+  border-color: $content-text;
+}
+
+.folder-enter {
+  // opacity: 0;
+  // color: $primary;
+  transform: translateX(-105%);
+}
+
+.folder-enter-active {
+  // opacity: 1;
+  // color: inherit;
+  transform: translateX(0);
+  transition: 
+    transform 750ms ease-in-out;
+    // opacity 500ms ease-in-out;
+    // color 500ms ease-in-out;
+  -webkit-transition: 
+    transform 750ms ease-in-out; 
+    // opacity 500ms ease-in-out;
+    // color 500ms ease-in-out;
+  -moz-transition:
+    transform 750ms ease-in-out; 
+    // opacity 500ms ease-in-out;
+    // color 500ms ease-in-out;
+  -o-transition:
+    transform 750ms ease-in-out; 
+    // opacity 500ms ease-in-out;
+    // color 500ms ease-in-out;
+}
+
+.folder-exit {
+  // opacity: 1;
+  transform: translateX(0);
+}
+
+.folder-exit-active {
+  // opacity: 0;
+  // color: $primary;
+  transform: translateX(-105%);
+  transition: 
+    transform 750ms ease-out;
+    // opacity 500ms ease-out;
+    // color 500ms ease-out-out;
+  -webkit-transition: 
+    transform 750ms ease-out; 
+    // opacity 500ms ease-out;
+    // color 500ms ease-out-out;
+  -moz-transition:
+    transform 750ms ease-out; 
+    // opacity 500ms ease-out;
+    // color 500ms ease-out-out;
+  -o-transition:
+    transform 750ms ease-out; 
+    // opacity 500ms ease-out;
+    // color 500ms ease-in-out;
+  
+}
+
+#pageContent {
+  z-index: 0;
+}
+
+.project-transition-enter {
+  opacity: 0;
+}
+
+.project-transition-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.project-transition-exit {
+  opacity: 1;
+}
+
+.project-transition-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+/* STOP OUTLINING BUTTON ON CLICK */
+.btn:focus,.btn:active {
+  outline: none !important;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

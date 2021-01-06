@@ -1,4 +1,4 @@
-import './Navigation.css'
+import './Navigation.scss'
 import React from 'react';
 
 function Navigation(props) {
@@ -33,26 +33,26 @@ function Navigation(props) {
 
     return (
         <div className="Navigation-bar">
-            <li 
-                className={"nav-item btn btn-lg btn-dark "+ (selection["about"] ? "active" : "")} 
+            <div 
+                className={"nav-item btn-lg btn-foreground rounded-0"+ (selection["about"] ? " active" : "")} 
                 onClick={()=>{onlySelectInActive("about")}}>
                 About
-            </li>
-            <li 
-                className={"nav-item btn btn-lg btn-dark "+ (selection["projects"] ? "active" : "")} 
+            </div>
+            <div 
+                className={"nav-item btn-lg btn-foreground rounded-0"+ (selection["projects"] ? " active" : "")} 
                 onClick={()=>{onlySelectInActive("projects")}}>
                 Projects
-            </li>
-            <li 
-                className={"nav-item btn btn-lg btn-dark "+ (selection["links"] ? "active" : "")} 
+            </div>
+            <div 
+                className={"nav-item btn-lg btn-foreground rounded-0"+ (selection["links"] ? " active" : "")} 
                 onClick={()=>{onlySelectInActive("links")}}>
                 Links
-            </li>
-            <li 
-                className={"nav-item btn btn-lg btn-dark "+(selection["hosting"] ? "active" : "")} 
+            </div>
+            <div 
+                className={"nav-item btn-lg btn-foreground rounded-0"+(selection["hosting"] ? " active" : "")} 
                 onClick={()=>{onlySelectInActive("hosting")}}>
                 Hosting
-            </li>
+            </div>
       </div>
     )
 }

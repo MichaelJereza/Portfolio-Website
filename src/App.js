@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import NavigationPanel from './components/Navigation';
 import About from './components/About';
 import Projects from './components/projects/Projects';
@@ -51,6 +51,7 @@ function App () {
 
     content = (
       <div id="App-content">
+        {/* <div id="App-content-border"></div>   */}
         <CSSTransition
           classNames="folder"
           in={animating}
@@ -63,21 +64,23 @@ function App () {
             }, {"once": true});}
           }
           unmountOnExit={true}>
-          <Switch >
-            <Route exact path = {["/", "/about"]}>
-              <About/>
-            </Route>
-            <Route path = "/projects">
-              <Projects/>
-            </Route>
-            <Route path = "/links">
-              <PersonalLinks/>
-            </Route>
-            <Route path = "/hosting">
-              <ReactDefault/>
-            </Route>
-          </Switch>
-        </CSSTransition>  
+          <div id="Content-border">
+            <Switch >
+              <Route exact path = {["/", "/about"]}>
+                <About/>
+              </Route>
+              <Route path = "/projects">
+                <Projects/>
+              </Route>
+              <Route path = "/links">
+                <PersonalLinks/>
+              </Route>
+              <Route path = "/hosting">
+                <ReactDefault/>
+              </Route>
+            </Switch>
+          </div>
+        </CSSTransition>
          
       </div>
     );
@@ -97,7 +100,7 @@ function App () {
 const ReactDefault = forwardRef((props, ref) => {
   return(
     <header ref={ref} >
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <p>This website was built with:</p>
         <ul className="list-group list-group-flush">
           <li className="list-group-item text-nowrap"><DecryptingText 
