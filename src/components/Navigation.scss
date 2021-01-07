@@ -1,16 +1,9 @@
 @import "../theme";
 
-// .btn-foreground:hover {
-//     background-color: $toolbar-onhover-button;
-// }
-
-// .btn-foreground:active {
-//     background-color: $toolbar-onactive-button !important;
-// }
-
-// .btn-foreground.active {
-//     background-color: $toolbar-active-button !important;
-// }
+.btn-lg.btn-foreground.active {
+}
+.btn-lg.btn-foreground:active {
+}
 
 .Navigation-bar {
     background-color: $toolbar-background;

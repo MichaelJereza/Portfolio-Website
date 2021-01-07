@@ -6,7 +6,7 @@ import MalwareFramework from "./modules/MalwareFramework";
 import Ncrypt from "./modules/Ncrypt";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 import MealLogger from "./modules/MealLogger";
 
 import './Projects.css'
@@ -49,24 +49,24 @@ function Project (props) {
     if(clickableNav.left && projectView.index !== 0) {
         leftNav = (
         <button onClick={()=>{changeView(-1)}} className="btn btn-link" >
-            <FontAwesomeIcon icon={faChevronLeft} color={theme.contentText}/>
+            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleLeft} color={theme.contentText}/>
         </button>)
     } else {
         leftNav = (
         <button onClick={()=>{changeView(-1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon icon={faChevronLeft} color={theme.contentText}/>
+            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleLeft} color={theme.contentText}/>
         </button>)
     }
 
     if(clickableNav.right && projectView.index !== 2) {
         rightNav = (
         <button onClick={()=>{changeView(1)}} className="btn btn-link" >
-            <FontAwesomeIcon icon={faChevronRight} color={theme.contentText}/>
+            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleRight} color={theme.contentText}/>
         </button>)
     } else {
         rightNav = (
         <button onClick={()=>{changeView(1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon icon={faChevronRight} color={theme.contentText}/>
+            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleRight} color={theme.contentText}/>
         </button>)
     }
 
@@ -108,7 +108,7 @@ function Project (props) {
 
             <span className="d-flex justify-content-between">
                 {/* <button onClick={()=>{changeView(-1)}} className="btn btn-link">
-                    <FontAwesomeIcon icon={faChevronLeft} color="white"/>
+                    <FontAwesomeIcon icon={faArrowCircleLeft} color="white"/>
                 </button> */}
                 {leftNav}
 
@@ -118,7 +118,7 @@ function Project (props) {
                     iterations={3}/></h1>
 
                 {/* <button onClick={()=>{changeView(1)}} className="btn btn-link" >
-                    <FontAwesomeIcon icon={faChevronRight} color="white"/>
+                    <FontAwesomeIcon icon={faArrowCircleRight} color="white"/>
                 </button> */}
                 {rightNav}
             </span>
