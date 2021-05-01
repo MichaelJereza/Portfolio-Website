@@ -14,103 +14,15 @@ import theme from '../../_theme.scss'
 
 function Project (props) {
 
-    const [projectView, setProjectView] = useState({
-        index: 0,
-        loadVideo: true,
-    });
-
-    const [animationTransition, setAnimateTransition] = useState({
-        animateIn: true,
-        nextIndex: null
-    });
-
-    function getIndexContent(nexIndex) {
-        let newView;
-        switch(nexIndex) {
-            case 0:
-                newView = <Ncrypt />;                    
-                break;
-            case 1: 
-                newView = <MalwareFramework lazyVideo={projectView.loadVideo}/>;
-                break;
-            case 2:
-                newView = <MealLogger />;
-                break;
-            default:
-        }
-
-        return newView;
-    }
-
-    const [clickableNav, setClickableNav] = useState({"left": true, "right": true});
-
-    let leftNav, rightNav;
-    
-    if(clickableNav.left && projectView.index !== 0) {
-        leftNav = (
-        <button onClick={()=>{changeView(-1)}} className="btn btn-link" >
-            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleLeft} color={theme.contentText}/>
-        </button>)
-    } else {
-        leftNav = (
-        <button onClick={()=>{changeView(-1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleLeft} color={theme.contentText}/>
-        </button>)
-    }
-
-    if(clickableNav.right && projectView.index !== 2) {
-        rightNav = (
-        <button onClick={()=>{changeView(1)}} className="btn btn-link" >
-            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleRight} color={theme.contentText}/>
-        </button>)
-    } else {
-        rightNav = (
-        <button onClick={()=>{changeView(1)}} className="btn btn-link" disabled>
-            <FontAwesomeIcon className="fas fa-2x" icon={faArrowCircleRight} color={theme.contentText}/>
-        </button>)
-    }
-
-    // increment should be +1 or -1
-    function changeView(increment) {
-        let newIndex = projectView.index + increment
-        if(newIndex >= 0 && newIndex <= 2) {
-            // Close animation and set next
-            setAnimateTransition({
-                animateIn: false,
-                nextIndex: newIndex
-            });
-        }
-    }
-
-    useEffect(()=>{
-        // Play the show animation
-        setAnimateTransition({
-            animateIn: true,
-            nextIndex: null,
-        })
-    }, [projectView.index])
-
-    useEffect(()=>{
-        if(animationTransition.animateIn === false){
-            setClickableNav({
-                "left": false,
-                "right": false
-            });
-        }
-
-        
-    }, [animationTransition.animateIn]);
-
     return(
 
         <div className="text-justify">
 
 
-            <span className="d-flex justify-content-between">
+            <span className="d-flex justify-content-center">
                 {/* <button onClick={()=>{changeView(-1)}} className="btn btn-link">
                     <FontAwesomeIcon icon={faArrowCircleLeft} color="white"/>
                 </button> */}
-                {leftNav}
 
                 <h1><DecryptingText 
                     textContent="Projects" 
@@ -120,11 +32,15 @@ function Project (props) {
                 {/* <button onClick={()=>{changeView(1)}} className="btn btn-link" >
                     <FontAwesomeIcon icon={faArrowCircleRight} color="white"/>
                 </button> */}
-                {rightNav}
             </span>
 
+            <MalwareFramework lazyVideo={true}/>
+            <hr/>
+            <Ncrypt />
+            <hr/>
+            <MealLogger />
 
-            <CSSTransition
+            {/* <CSSTransition
                 classNames="project-transition"
                 in={animationTransition.animateIn}
                 addEndListener={
@@ -149,7 +65,7 @@ function Project (props) {
                     }, false);}
                 }>
                 { getIndexContent(projectView.index) }    
-            </CSSTransition>  
+            </CSSTransition>   */}
 
 
         </div>

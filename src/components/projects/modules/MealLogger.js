@@ -5,7 +5,7 @@ function MealLogger () {
     return (
         <div>
             <div className="row no-gutters align-items-center justify-content-center pb-1">
-                <a className="App-link row" target="_blank" rel="noreferrer" href="https://github.com/MichaelJereza/final-project-meal-logger">
+                <a className="App-link row align-items-center" target="_blank" rel="noreferrer" href="https://github.com/MichaelJereza/final-project-meal-logger">
                     <FontAwesomeIcon icon={faGithub}/>
                     <h2 className="pl-3">Meal Logger</h2>
                 </a>

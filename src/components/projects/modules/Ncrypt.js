@@ -5,7 +5,7 @@ function Ncrypt () {
     return (
         <div>
             <span className="row no-gutters align-items-center justify-content-center pb-1">
-                <a className="App-link row" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.mike.android.ncrypt">
+                <a className="App-link row align-items-center" target="_blank" rel="noreferrer" href="https://play.google.com/store/apps/details?id=com.mike.android.ncrypt">
                     <FontAwesomeIcon icon={faGooglePlay}/>
                     <h2 className="pl-3">Ncrypt</h2>
                 </a>
