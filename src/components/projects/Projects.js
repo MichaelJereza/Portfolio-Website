@@ -34,10 +34,10 @@ function Project (props) {
                 </button> */}
             </span>
 
-            <MalwareFramework lazyVideo={true}/>
-            <hr/>
+            <MalwareFramework/>
+            <hr className="my-5"/>
             <Ncrypt />
-            <hr/>
+            <hr className="my-5"/>
             <MealLogger />
 
             {/* <CSSTransition

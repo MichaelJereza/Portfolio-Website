@@ -9,7 +9,12 @@
 }
 
 #App-content {
-  background-color: $content-backdrop; 
+  // background-color: $content-backdrop; 
+  background-image: url('https://raw.githubusercontent.com/MichaelJereza/MichaelJereza.github.io/master/background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position-x: 0;
   /* background-color: $primary; */
   min-height: 100vh;
   width: 100%;
